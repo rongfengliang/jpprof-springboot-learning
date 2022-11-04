@@ -2,6 +2,7 @@ package com.dalong.jpprofappv2;
 
 import jpprof.CPUProfiler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +13,7 @@ import java.time.Duration;
 public class ProfileApi {
 
     @GetMapping("/debug/pprof/profile")
-    public void  demo(HttpServletRequest request, HttpServletResponse response){
-        String seconds = request.getParameter("seconds");
+    public void  demo(@RequestParam(required = false) String seconds, HttpServletResponse response){
         Duration duration = Duration.ofSeconds((long) Integer.parseInt(seconds));
         try {
             response.setHeader("Content-Encoding", "gzip");
