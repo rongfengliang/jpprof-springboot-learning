@@ -19,6 +19,7 @@ public class ProfileApi {
             response.setHeader("Content-Encoding", "gzip");
             response.setStatus(200);
             CPUProfiler.start(duration, response.getOutputStream());
+            response.flushBuffer();
         } catch (Exception var9) {
             response.setStatus(500);
         } finally {
