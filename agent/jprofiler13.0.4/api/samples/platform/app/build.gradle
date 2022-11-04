@@ -1,0 +1,5 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation "com.jprofiler:jprofiler-probe-embedded:$version"
+}
